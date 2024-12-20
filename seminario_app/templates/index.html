@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<style>
+
+    body {
+        background: linear-gradient(135deg, #74b9ff, #0984e3); 
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    
+    .main-container {
+        background-color: #ffffff; 
+        border-radius: 15px;
+        padding: 30px;
+        margin: 40px auto;
+        max-width: 600px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        color: #333; 
+    }
+
+    
+    .main-container h1 {
+        color: #2d3436; 
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .main-container p {
+        color: #636e72; 
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    
+    .btn-modern {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        font-size: 1rem;
+        border-radius: 50px;
+        border: none;
+        font-weight: bold;
+        margin-bottom: 15px;
+        transition: all 0.3s ease-in-out;
+        text-align: center;
+    }
+
+    .btn-inscritos {
+        background-color: #00cec9; 
+        color: #fff;
+    }
+
+    .btn-inscritos:hover {
+        background-color: #00a8a8; 
+    }
+
+    .btn-instituciones {
+        background-color: #fdcb6e; 
+        color: #fff;
+    }
+
+    .btn-instituciones:hover {
+        background-color: #d4a158; 
+    }
+
+    .btn-apis {
+        background-color: #6c5ce7; 
+        color: #fff;
+    }
+
+    .btn-apis:hover {
+        background-color: #5b4dc1; 
+    }
+
+    .btn-author {
+        background-color: #e17055; 
+        color: #fff;
+    }
+
+    .btn-author:hover {
+        background-color: #d35400; 
+    }
+
+   
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #dfe6e9;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="main-container">
+    
+    <h1>Bienvenido al Sistema</h1>
+    <p>Gestiona inscritos e instituciones de forma sencilla y eficiente.</p>
+
+  
+    <div class="d-flex flex-column">
+        <a href="{% url 'inscrito_list' %}" class="btn btn-modern btn-inscritos">Ver Inscritos</a>
+        <a href="{% url 'institucion_list' %}" class="btn btn-modern btn-instituciones">Ver Instituciones</a>
+        <a href="/api/inscritos/" class="btn btn-modern btn-apis">API de Inscritos</a>
+        <a href="/api/instituciones/" class="btn btn-modern btn-apis">API de crear Instituciones</a>
+        <a href="{% url 'autor_info' %}" class="btn btn-modern btn-author">API del Autor</a>
+    </div>
+
+
+</div>
+{% endblock %}

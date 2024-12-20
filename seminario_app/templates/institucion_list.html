@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Instituciones{% endblock %}
+
+{% block content %}
+<style>
+    /* Fondo principal */
+    body {
+        background: linear-gradient(135deg, #74b9ff, #0984e3); /* Gradiente azul moderno */
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Contenedor principal */
+    .main-container {
+        background-color: #ffffff; /* Fondo blanco */
+        border-radius: 15px;
+        padding: 30px;
+        margin: 40px auto;
+        max-width: 800px;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        color: #333; /* Texto oscuro */
+    }
+
+    /* Títulos */
+    .main-container h1 {
+        color: #2d3436; /* Gris oscuro */
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+
+    .main-container p {
+        color: #636e72; /* Gris medio */
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
+
+    /* Botón de regreso */
+    .btn-back {
+        background-color: #7F8C8D; /* Gris */
+        color: #fff;
+        border-radius: 50px;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 1rem;
+        display: inline-block;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-back:hover {
+        background-color: #6c5ce7; /* Morado */
+        color: #fff;
+    }
+
+    /* Tablas */
+    .table {
+        width: 100%;
+        margin-top: 20px;
+        border-collapse: collapse;
+    }
+
+    .table th, .table td {
+        padding: 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #6c5ce7; /* Morado */
+        color: #fff;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .table tr:hover {
+        background-color: #dfe6e9;
+    }
+
+    /* Botón eliminar */
+    .btn-danger {
+        background-color: #e74c3c;
+        color: #fff;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-danger:hover {
+        background-color: #c0392b;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        margin-top: 30px;
+        color: #dfe6e9;
+        font-size: 0.9rem;
+    }
+</style>
+
+<div class="main-container">
+    <!-- Encabezado principal -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1>Lista de Instituciones</h1>
+        <a href="{% url 'index' %}" class="btn-back">Volver al Inicio</a>
+    </div>
+
+    <!-- Tabla de Instituciones -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for institucion in instituciones %}
+            <tr>
+                <td>{{ institucion.id }}</td>
+                <td>{{ institucion.nombre }}</td>
+                <td>
+                    
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="3" class="text-center text-muted">No hay instituciones registradas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+   
+</div>
+{% endblock %}
